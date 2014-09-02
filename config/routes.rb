@@ -1,5 +1,5 @@
 Rails.application.routes.draw do
-
+resources :friendlists
   resources :profiles do
     resources :friendlists
   end
