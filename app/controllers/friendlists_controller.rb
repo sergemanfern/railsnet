@@ -1,6 +1,7 @@
 class FriendlistsController < ApplicationController
+  before_action :confirm_logged_in
   before_action :set_friendlist, only: [:show, :edit, :update, :destroy]
-
+  
   # GET /friendlists
   # GET /friendlists.json
   def index

@@ -1,6 +1,7 @@
 class ProfilesController < ApplicationController
+  layout "admin"
+  #before_action :confirm_logged_in
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
-
   # GET /profiles
   # GET /profiles.json
   def index
@@ -28,8 +29,10 @@ class ProfilesController < ApplicationController
 
     respond_to do |format|
       if @profile.save
+        flash[:notice]="Profile created successfullly."
         format.html { redirect_to @profile, notice: 'Profile was successfully created.' }
         format.json { render :show, status: :created, location: @profile }
+        
       else
         format.html { render :new }
         format.json { render json: @profile.errors, status: :unprocessable_entity }
@@ -42,6 +45,7 @@ class ProfilesController < ApplicationController
   def update
     respond_to do |format|
       if @profile.update(profile_params)
+        flash[:notice]="Profile updated successfullly."
         format.html { redirect_to @profile, notice: 'Profile was successfully updated.' }
         format.json { render :show, status: :ok, location: @profile }
       else
