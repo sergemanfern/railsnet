@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :password %><br>
-    <%= f.text_field :password %>
+    <%= f.password_field(:password) %>
   </div>
   <div class="field">
     <%= f.label :name %><br>
@@ -29,7 +29,7 @@
   </div>
   <div class="field">
     <%= f.label :birth %><br>
-    <%= f.text_field :birth %>
+    <%=  date_field(:profile, :birth) %>
   </div>
   <div class="field">
     <%= f.label :status %><br>
@@ -39,7 +39,13 @@
     <%= f.label :about %><br>
     <%= f.text_field :about %>
   </div>
+   <div class="picture">
+     <%= form_tag({method: :upload}, multipart: true) do %>
+     <%= file_field_tag 'picture' %>
+     <% end %>
+   </div>
   <div class="actions">
     <%= f.submit %>
   </div>
+
 <% end %>

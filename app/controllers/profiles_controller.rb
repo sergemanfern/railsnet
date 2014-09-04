@@ -1,4 +1,4 @@
-class ProfilesController < ApplicationController
+ class ProfilesController < ApplicationController
   layout "admin"
   #before_action :confirm_logged_in
   before_action :set_profile, only: [:show, :edit, :update, :destroy]
@@ -21,7 +21,14 @@ class ProfilesController < ApplicationController
   # GET /profiles/1/edit
   def edit
   end
-
+   
+  def upload
+    uploaded_io = params[:profile][:picture]
+      File.open(Rails.root.join('public', 'uploads', uploaded_io.original_filename), 'wb') do |file|
+        file.write(uploaded_io.read)
+      end
+  end
+   
   # POST /profiles
   # POST /profiles.json
   def create

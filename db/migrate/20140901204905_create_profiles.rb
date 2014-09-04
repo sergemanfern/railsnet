@@ -8,7 +8,6 @@ class CreateProfiles < ActiveRecord::Migration
       t.string :birth
       t.string :status
       t.string :about
-
       t.timestamps
     end
   end

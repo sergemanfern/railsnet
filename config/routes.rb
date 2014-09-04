@@ -1,11 +1,9 @@
 Rails.application.routes.draw do
-  root to: 'access#loginra'
+  root to: 'access#login'
   get 'activities/index'
   get 'admin', :to => "access#index"
   #match ':controller(/:action(/:id))',:via=>[:get,:post]
-  resources :activities
-  resources :friendlists
-  resources :profiles do
+  resources :activities  resources :profiles do
     resources :friendlists
   end
   
