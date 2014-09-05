@@ -1,9 +1,11 @@
-<%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %><p id="notice"><%= notice %></p>
-<div class="profiles show">
-  <h2>Show Profile</h2>
 <p>
-  <strong>Login:</strong>
+  <strong>Login:</strong> 
   <%= @profile.login %>
+</p>
+
+<p>
+  <strong>Status:</strong>
+  <%= @profile.status %>
 </p>
 
 <p>
@@ -21,13 +23,12 @@
   <%= @profile.birth %>
 </p>
 
-<p>
-  <strong>Status:</strong>
-  <%= @profile.status %>
-</p>
+
 
 <p>
   <strong>About:</strong>
   <%= @profile.about %>
 </p>
-</div>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>

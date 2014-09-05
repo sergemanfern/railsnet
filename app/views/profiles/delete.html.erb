@@ -1,0 +1,15 @@
+<%= link_to("<< Back Profile List", {:action => 'index'}, :class => 'back-link') %>
+
+<div class="Profile delete">
+
+  <%= form_for(:profile,:url=>{:action=>'destroy', :id=>@profile.id}) do |f| %>
+
+ 
+ <h2> <%= "Are you sure you wanna delete profile "+ @profile.login + "?" %></h2>
+
+    <div class="form-buttons">
+      <%= submit_tag("Delete Profile!") %>
+    </div>
+
+  <% end %>
+</div>

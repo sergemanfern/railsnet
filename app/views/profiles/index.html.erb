@@ -22,9 +22,9 @@
         <td><%= profile.birth %></td>
         <td><%= profile.status %></td>
         <td><%= profile.about %></td>
-        <td><%= link_to 'Show', profile %></td>
-        <td><%= link_to 'Edit', edit_profile_path(profile) %></td>
-        <td><%= link_to 'Destroy', profile, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to("Show", {:action=>'show',:id=>profile.id}, :class => 'action show') %></td>
+        <td><%= link_to("Edit", {:action=>'edit',:id=>profile.id}, :class => 'action edit') %></td>
+        <td><%= link_to("Delete", {:action=>'delete',:id=>profile.id}, :class => 'action delete') %></td>
       </tr>
     <% end %>
   </tbody>
@@ -32,4 +32,4 @@
 
 <br>
 
-<%= link_to 'New Profile', new_profile_path %>
+<%= link_to("Add New profile", {:action=>'new'}, :class => 'action new') %>

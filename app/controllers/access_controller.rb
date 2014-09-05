@@ -1,5 +1,5 @@
 class AccessController < ApplicationController
- 	#layout 'admin'
+ 	layout 'admin'
 
  	before_action :confirm_logged_in, :except=>[:login,:attempt_login,:logout]
   
@@ -21,11 +21,11 @@ class AccessController < ApplicationController
   	if authorized_user
 	  	# TODO: mark user as logged in
 	  	session[:user_id]=authorized_user.id
-	  	session[:login]=authorized_user.username
+	  	session[:login]=authorized_user.login
 	  	flash[:notice]="You are now logged in."
 	  	redirect_to(:action=>'index')
 	  else
-	  	flash[:notice]="Invalid username/password combination"
+	  	flash[:notice]="Invalid login/password combination"
 	  	redirect_to(:action=>'login')
   	end
   end

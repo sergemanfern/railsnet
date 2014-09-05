@@ -1,12 +1,8 @@
 Rails.application.routes.draw do
   root to: 'access#login'
-  get 'activities/index'
   get 'admin', :to => "access#index"
   #match ':controller(/:action(/:id))',:via=>[:get,:post]
-  resources :activities  resources :profiles do
-    resources :friendlists
-  end
-  
+  match ':controller(/:action(/:id))',:via=>[:get,:post]
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

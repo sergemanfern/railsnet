@@ -1,19 +1,8 @@
-<%= form_for(@profile) do |f| %>
-  <% if @profile.errors.any? %>
-    <div id="error_explanation">
-      <h2><%= pluralize(@profile.errors.count, "error") %> prohibited this profile from being saved:</h2>
 
-      <ul>
-      <% @profile.errors.full_messages.each do |message| %>
-        <li><%= message %></li>
-      <% end %>
-      </ul>
-    </div>
-  <% end %>
 
   <div class="field">
     <%= f.label :login %><br>
-    <%= f.text_field :login %>
+    <%= f.text_field :login, :value=>'bot1' %>
   </div>
   <div class="field">
     <%= f.label :password %><br>
@@ -21,31 +10,21 @@
   </div>
   <div class="field">
     <%= f.label :name %><br>
-    <%= f.text_field :name %>
+    <%= f.text_field :name, :value=>'bot1' %>
   </div>
   <div class="field">
     <%= f.label :surname %><br>
-    <%= f.text_field :surname %>
+    <%= f.text_field :surname, :value=>'bot1 surname' %>
   </div>
   <div class="field">
     <%= f.label :birth %><br>
-    <%=  date_field(:profile, :birth) %>
-  </div>
-  <div class="field">
-    <%= f.label :status %><br>
-    <%= f.text_field :status %>
-  </div>
-  <div class="field">
-    <%= f.label :about %><br>
-    <%= f.text_field :about %>
-  </div>
-   <div class="picture">
-     <%= form_tag({method: :upload}, multipart: true) do %>
-     <%= file_field_tag 'picture' %>
-     <% end %>
-   </div>
-  <div class="actions">
-    <%= f.submit %>
+    <%=  date_field(:profile, :birth, :value=>'01.01.1990') %>
   </div>
 
-<% end %>
+  <div class="field">
+    <%= f.label :about %><br>
+    <%= f.text_field :about, :value=>'some shit about you' %>
+  </div>
+
+
+

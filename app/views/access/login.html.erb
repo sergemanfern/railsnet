@@ -1,11 +1,12 @@
+
 <% @page_title="Admin Login" %>
 <h1 align=center>Welcome to Rails social network! </h1>
 <div class="login" align=center>
-	<%=	form_tag(:action =>'attempt_login') do %>
+  <%=	form_tag(:action =>:attempt_login) do %>
 	<table>
 		<tr>
-			<td><%= label_tag(:username) %> </td>
-			<td><%= text_field_tag(:username) %> </td>
+			<td><%= label_tag(:login) %> </td>
+			<td><%= text_field_tag(:login) %> </td>
 		</tr>
 		<tr>
 			<td><%= label_tag(:password) %> </td>
@@ -14,7 +15,6 @@
 		<tr>
 			<td>&nbsp;</td>
 			<td><%= submit_tag("Log In") %></td>
-      <td><%= submit_tag("Log In") %></td>
 		</tr>
 
 	</table>

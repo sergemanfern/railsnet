@@ -1,13 +1,12 @@
 <!DOCTYPE html>
 <html>
 	<head>
-	  <title>Rubysite | <%= @page_title || "Admin" %></title>
+	  <title> <%= @page_title || "Admin" %></title>
 	<%= stylesheet_link_tag('application',:media=>'all') %>
 
 	</head>
 	<body>
 		<div id="header">
-			<h1>Railsnet socialapp<h1>
 		</div>
 		<div id="main">
 			<% if !flash[:notice].blank? %>
@@ -22,7 +21,7 @@
       
 	
 		<div id="footer">
-			<p id="copyright">&copy; (c)Manfern</p>
+			<p id="copyright">&copy; (c)MF - 2014</p>
 		</div>
 	</body>
 </html>
