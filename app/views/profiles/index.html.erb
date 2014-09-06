@@ -1,14 +1,28 @@
-<h1>Listing profiles</h1>
 
+<!DOCTYPE <!DOCTYPE html>
+<html>
+<head>
+  <title>Railsnet social app</title>
+</head>
+<body>
+<p>
+  <form>
+    <legend>Search</legend>
+    <div class="col">
+     <input type="text" class="form-control" value=' <%= params[:keyword] %>' name='keyword' placeholder='keyword'>
+    </div>
+  </form>
+</p>
+
+
+<h1>Listing profiles</h1>
 <table class="table">
   <thead>
     <tr>
-      <th>Login</th>
       <th>Name</th>
       <th>Surname</th>
       <th>Birth</th>
       <th>Status</th>
-      <th>About</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -16,12 +30,10 @@
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
-        <td><%= profile.login %></td>
         <td><%= profile.name %></td>
         <td><%= profile.surname %></td>
         <td><%= profile.birth %></td>
         <td><%= profile.status %></td>
-        <td><%= profile.about %></td>
         <td><%= link_to("Show", {:action=>'show',:id=>profile.id}, :class => 'action show') %></td>
         <td><%= link_to("Edit", {:action=>'edit',:id=>profile.id}, :class => 'action edit') %></td>
         <td><%= link_to("Delete", {:action=>'delete',:id=>profile.id}, :class => 'action delete') %></td>
@@ -33,3 +45,6 @@
 <br>
 
 <%= link_to("Add New profile", {:action=>'new'}, :class => 'action new') %>
+
+</body>
+</html>

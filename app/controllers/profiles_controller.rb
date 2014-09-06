@@ -1,12 +1,20 @@
  class ProfilesController < ApplicationController
-	layout 'admin'
+	layout 'application'
   before_action :find_profile
-#	before_action :confirm_logged_in
+  before_action :authenticate_user!, except: [:index,:show]
+  #before_action :confirm_logged_in
 
 	def index
-    @profiles=Profile.sorted
+    @profiles=Profile.search(params[:keyword])
+    #if params[:keyword]==''
+     # @profiles=Profile.sorted
+    #end 
 	end
-
+   
+  def show
+    @profile=Profile.find(params[:id])
+  end
+   
 	def new
     @profile=Profile.new
 	end

@@ -4,6 +4,7 @@
 	<h2>Admin Menu</h2>
 	<div class="identity">Logged in as:<% session[:login] %></div>
 	<ul>
+    <li><%= link_to "My profile",:controller=>'profiles' %> </li>
     <li><%= link_to "Manage Profiles",:controller=>'profiles' %> </li>
 		<li><%= link_to "Logout", :action=>'logout' %> </li>
 	</ul>

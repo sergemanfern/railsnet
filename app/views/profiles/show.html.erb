@@ -1,28 +1,16 @@
 <%= link_to("<< Back to List", {:action => 'index'}, :class => 'back-link') %><p id="notice"><%= notice %></p>
-<div class="profiles show">
-  <h2>Show Profile</h2>
+<div class="profiles show" align=center>
+  <h4>Profile:</h4>
+  
+  <h2><%= @profile.name+@profile.surname %> </h2>
+
+
 <p>
-  <strong>Login:</strong>
-  <%= @profile.login %>
+  <strong>Day of Birth:</strong> <%= @profile.birth %>
 </p>
 
 <p>
-  <strong>Name:</strong>
-  <%= @profile.name %>
-</p>
-
-<p>
-  <strong>Surname:</strong>
-  <%= @profile.surname %>
-</p>
-
-<p>
-  <strong>Birth:</strong>
-  <%= @profile.birth %>
-</p>
-
-<p>
-  <strong>Status:</strong>
+  <strong>Status: online</strong>
   <%= @profile.status %>
 </p>
 

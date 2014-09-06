@@ -1,5 +1,6 @@
 Rails.application.routes.draw do
-  root to: 'access#login'
+  devise_for :users
+  root to: 'profiles#index'
   get 'admin', :to => "access#index"
   #match ':controller(/:action(/:id))',:via=>[:get,:post]
   match ':controller(/:action(/:id))',:via=>[:get,:post]

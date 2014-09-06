@@ -12,7 +12,7 @@ class AccessController < ApplicationController
   end
 
   def attempt_login
-  if params[:login].present? && params[:password].present?
+    if params[:login].present? && params[:password].present?
     found_user = Profile.where(:login=>params[:login]).first
   	if found_user
   		authorized_user = found_user.authenticate(params[:password])
