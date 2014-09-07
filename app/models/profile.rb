@@ -2,9 +2,10 @@ class Profile < ActiveRecord::Base
   has_secure_password
   include PublicActivity::Model
   tracked
-  scope :sorted, lambda {order("profiles.id ASC")}
-  scope :search,->(keyword){where(name: keyword) if keyword.present?}
+  scope :sorted, lambda { order("profiles.id ASC")}
+  scope :search,->(keyword){ where('keywords LIKE ?',"%#{keyword.downcase}%") if keyword.present?}
   validates_uniqueness_of :login
+  before_save :set_keywords
 
   # def self.search(keyword)
   # 	if keyword.present?
@@ -14,5 +15,12 @@ class Profile < ActiveRecord::Base
   # 	end
   # end
 
+  protected
+  	def set_keywords
+  		self.keywords=[name, surname, about, login, birth].map {|p| p.downcase}.join(' ')
+  	end
 
-end
+
+
+
+end 

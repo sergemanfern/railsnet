@@ -64,7 +64,7 @@
 
 private
    def profile_params
-     params.require(:profile).permit(:login, :name,:surname,:password,:birth)
+     params.require(:profile).permit(:login, :name,:surname,:password,:birth,:about,:status)
       end
    
    def find_profile
