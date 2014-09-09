@@ -1,6 +1,15 @@
-<h1>Editing profile</h1>
+<%= link_to("<< Back to Profile list", {:action => 'index'}, :class => 'back-link') %>
 
-<%= render 'form' %>
+<div class="Profiles edit">
+  <h2>Update page</h2>
 
-<%= link_to 'Show', @profile %> |
-<%= link_to 'Back', profiles_path %>
+  <%= form_for(:Profile, :url => {:action => 'update'}) do |f| %>
+
+    <%= render(:partial=>"form",:locals=>{:f=>f})  %>
+
+    <div class="form-buttons">
+      <%= submit_tag("Update profile") %>
+    </div>
+
+  <% end %>
+</div>

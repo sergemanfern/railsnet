@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'friendship/add'
+
+  get 'friendship/remove'
+
   devise_for :users
   root to: 'profiles#index'
   get 'admin', :to => "access#index"

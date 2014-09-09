@@ -1,5 +1,6 @@
 class Profile < ActiveRecord::Base
   has_secure_password
+  has_one :user
   include PublicActivity::Model
   tracked
   scope :sorted, lambda { order("profiles.id ASC")}

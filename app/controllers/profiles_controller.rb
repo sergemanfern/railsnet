@@ -1,4 +1,4 @@
- class ProfilesController < ApplicationController
+class ProfilesController < ApplicationController
 	layout 'application'
   before_action :find_profile
   before_action :authenticate_user!, except: [:index,:show]
@@ -62,16 +62,17 @@
     redirect_to(:action=>'index')
 	end
 
-private
-   def profile_params
-     params.require(:profile).permit(:login, :name,:surname,:password,:birth,:about,:status)
+  private
+      def profile_params
+        params.require(:profile).permit(:login, :name,:surname,:password,:birth,:about,:status)
       end
    
-   def find_profile
-     if params[:profile_id]
+  def find_profile
+    if params[:profile_id]
        @profile=Profile.find(params[:profile_id])
-        end
-      end
+    end
+  end
       
+
 end
 
