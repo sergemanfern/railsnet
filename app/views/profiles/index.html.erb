@@ -3,6 +3,7 @@
 <html>
 <head>
   <title>Railsnet social app</title>
+  <%= link_to("My profile", {:action=>'show'}, :class => 'action show') %>
 </head>
 <body>
 <p>
@@ -14,15 +15,16 @@
   </form>
 </p>
 
-
 <h1>Listing profiles</h1>
 <table class="table">
   <thead>
     <tr>
+      <th>ID</th>
       <th>Name</th>
       <th>Surname</th>
       <th>Birth</th>
       <th>Status</th>
+      <th>Profile_user</th>
       <th colspan="3"></th>
     </tr>
   </thead>
@@ -30,10 +32,11 @@
   <tbody>
     <% @profiles.each do |profile| %>
       <tr>
-        <td><%= profile.name %></td>
+        <td><%= profile.id %></td>
         <td><%= profile.surname %></td>
         <td><%= profile.birth %></td>
         <td><%= profile.status %></td>
+        <td><%= profile.user %></td>
         <td><%= link_to("Show", {:action=>'show',:id=>profile.id}, :class => 'action show') %></td>
         <td><%= link_to("Edit", {:action=>'edit',:id=>profile.id}, :class => 'action edit') %></td>
         <td><%= link_to("Delete", {:action=>'delete',:id=>profile.id}, :class => 'action delete') %></td>

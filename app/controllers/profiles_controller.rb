@@ -62,6 +62,15 @@ class ProfilesController < ApplicationController
     redirect_to(:action=>'index')
 	end
 
+  def add_friend
+
+  end
+
+  def remove_friend
+
+  end
+
+  
   private
       def profile_params
         params.require(:profile).permit(:login, :name,:surname,:password,:birth,:about,:status)

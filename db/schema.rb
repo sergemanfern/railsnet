@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140909032101) do
+ActiveRecord::Schema.define(version: 20140912000906) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -42,11 +42,10 @@ ActiveRecord::Schema.define(version: 20140909032101) do
   end
 
   create_table "friendships", force: true do |t|
-    t.string   "profile_id"
-    t.string   "integer"
-    t.string   "friend_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "friend_id"
+    t.integer  "profile_id"
   end
 
   create_table "profiles", force: true do |t|
@@ -76,6 +75,7 @@ ActiveRecord::Schema.define(version: 20140909032101) do
     t.inet     "last_sign_in_ip"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.integer  "profile_id"
   end
 
   add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
